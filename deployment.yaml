@@ -27,16 +27,10 @@ spec:
           ports:
             - containerPort: 8080
               name: http
-          readinessProbe:
-            httpGet:
-              path: /ping
-              port: 8080
-            initialDelaySeconds: 60
-            timeoutSeconds: 5
           livenessProbe:
-            httpGet:
-              path: /ping
-              port: 8080
+            exec:
+              command:
+              - ls
             initialDelaySeconds: 70
             timeoutSeconds: 10
             failureThreshold: 10 
